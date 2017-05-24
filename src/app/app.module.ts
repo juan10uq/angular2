@@ -4,7 +4,7 @@
 // Modules -> Modules are how we organize our application in Angular, Every Angular application must have a "root module", which we'll need to launch it. 
 // One app may have multiples modules, but we need to declare a "root module"
 // Component -> Funtion we will use to create components
-// NgModule ->
+// NgModule -> Angular 2 you must specifically say which components you’re going to be using in your app.
 import { NgModule }      from '@angular/core';
 
 // BrowserModule -> Module we need for running/rendering Angular websites.
@@ -13,10 +13,11 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent }  from './app.component';
+import { UserComponent }  from './components/user.component';
 
 @NgModule({
   imports:      [ BrowserModule ], // Loods required dependencies to launch our app in the browser.
-  declarations: [ AppComponent ], // List of all components within the module.
+  declarations: [ AppComponent, UserComponent ], // List of all components within the module.
   bootstrap:    [ AppComponent ] // Indicates our root component
 })
 // imports -> other modules whose exported classes are needed by component templates declared in this module.

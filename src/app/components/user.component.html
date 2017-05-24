@@ -1,0 +1,17 @@
+<h1>{{name}}</h1>
+<p>Email: {{email}}</p>
+<p>Address: {{address.street}} {{address.city}}, {{address.country}}</p>
+<button (click)="toggleColorList()">{{showColors ? "Hide":"Show"}} Color User List</button>
+<div *ngIf="showColors">
+<h3>User Colors</h3>
+<ul>
+    <li *ngFor="let color of colors; let i = index">
+    {{color}} <button (click)="deleteColor(i)">X</button>
+    </li>
+    <br/>    
+    <form (submit)="addNewColor(color.value)">
+         <label>Add new color: </label><br/>
+         <input type="text" #color/>
+    </form>
+</ul>
+</div>
