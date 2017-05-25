@@ -18,9 +18,13 @@ import { Component } from '@angular/core';
     <h3>User Colors</h3>
     <ul>
         <li *ngFor="let color of colors; let i = index">
-          {{color}}
+        {{color}} <button (click)="deleteColor(i)">X</button>
         </li>
         <br/>    
+        <form (submit)="addNewColor(color.value, $event)">
+            <label>Add new color: </label><br/>
+            <input type="text" #color/>
+        </form>
     </ul>
     </div>
   `,
@@ -55,6 +59,15 @@ export class AppComponent  {
 
   toggleColorList() {
     this.showColors = !this.showColors;
+  }
+
+  addNewColor(newColor: string, event: Event) {
+    event.preventDefault();
+    this.colors.push(newColor);
+  }
+
+  deleteColor(i: number) {
+    this.colors.splice(i, 1);
   }
 }
 
