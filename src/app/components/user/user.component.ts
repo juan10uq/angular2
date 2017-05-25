@@ -5,7 +5,7 @@
 // Component -> Funtion we will use to create components
 // NgModule -> Angular 2 you must specifically say which components you’re going to be using in your app.
 import { Component } from '@angular/core';
-import { PostService } from '../Services/post/post.service'
+import { PostService } from '../../services/post/post.service'
 
 // @Component -> used to apply our component decorator to our class, it's a typescript feature
 // moduleId -> is used to resolve relative paths for your stylesheets and templates as it says in the documentation.

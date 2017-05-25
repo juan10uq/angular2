@@ -13,13 +13,16 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule  } from '@angular/router';
 
 import { AppComponent }  from './app.component';
 import { UserComponent }  from './components/user/user.component';
+import { AboutComponent }  from './components/about/about.component';
+import { routing }  from './app.routing';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, HttpModule ], // Loods required dependencies to launch our app in the browser.
-  declarations: [ AppComponent, UserComponent ], // List of all components within the module.
+  imports:      [ BrowserModule, FormsModule, HttpModule, routing ], // Loods required dependencies to launch our app in the browser.
+  declarations: [ AppComponent, UserComponent, AboutComponent ], // List of all components within the module.
   bootstrap:    [ AppComponent ] // Indicates our root component
 })
 // imports -> other modules whose exported classes are needed by component templates declared in this module.

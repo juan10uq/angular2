@@ -10,7 +10,9 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'my-app',
   template: `
-    <user></user>
+    <div>
+      <router-outlet></router-outlet>
+    </div>
   `,
 })
 
