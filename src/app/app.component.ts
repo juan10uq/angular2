@@ -27,7 +27,6 @@ export class AppComponent  {
   name: string; 
   email: string;
   address: address;
-  showColors: boolean;
 
   constructor(){
     this.name = 'Juan'; 
