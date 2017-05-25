@@ -50,7 +50,7 @@ export class UserComponent  {
   }
 }
 
-interface address {
+type address = {
     street: string;
     city: string;
     country: string;
