@@ -5,12 +5,14 @@
 // Component -> Funtion we will use to create components
 // NgModule -> Angular 2 you must specifically say which components you’re going to be using in your app.
 import { Component } from '@angular/core';
+import { PostService } from '../Services/post/post.service'
 
 // @Component -> used to apply our component decorator to our class, it's a typescript feature
 // moduleId -> is used to resolve relative paths for your stylesheets and templates as it says in the documentation.
 @Component({
   selector: 'user',
-  templateUrl: 'app/components/user/user.component.html'
+  templateUrl: 'app/components/user/user.component.html',
+  providers: [PostService]
 })
 // selector -> CSS selector that tells Angular to create and insert an instance of this component where it finds a <my-app> tag in parent HTML.
 // templateUrl -> module-relative address of this component's HTML template, shown above.
@@ -23,8 +25,9 @@ export class UserComponent  {
   address: address;
   colors: string[];
   showColors: boolean;
+  posts: Post;
 
-  constructor(){
+  constructor(private postService: PostService){
     this.name = 'Juan'; 
     this.email = 'juan@gmail.com';
     this.address = {
@@ -34,6 +37,9 @@ export class UserComponent  {
     }
     this.colors = ['red', 'black', 'blue'];
     this.showColors = false;
+    this.postService.getPost().subscribe(posts => {
+      this.posts = posts;
+    });
   }
 
   toggleColorList() {
@@ -50,8 +56,14 @@ export class UserComponent  {
   }
 }
 
-interface address {
+type address = {
     street: string;
     city: string;
     country: string;
+}
+
+type Post = {
+  id: number;
+  title: string;
+  body: string;
 }

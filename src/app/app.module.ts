@@ -12,12 +12,13 @@ import { NgModule }      from '@angular/core';
 // Ahead-of-Time pre-compiled version of application being sent to the browser. Which usually means a significantly smaller package being sent to the browser.
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent }  from './app.component';
 import { UserComponent }  from './components/user/user.component';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule ], // Loods required dependencies to launch our app in the browser.
+  imports:      [ BrowserModule, FormsModule, HttpModule ], // Loods required dependencies to launch our app in the browser.
   declarations: [ AppComponent, UserComponent ], // List of all components within the module.
   bootstrap:    [ AppComponent ] // Indicates our root component
 })
