@@ -9,7 +9,11 @@ import { Component } from '@angular/core';
 // @Component -> used to apply our component decorator to our class, it's a typescript feature
 @Component({
   selector: 'my-app',
-  template: `<user></user>`,
+  template: `
+    <h1>{{name}}</h1>
+    <p>Email: {{email}}</p>
+    <p>Address: {{address.street}} {{address.city}}, {{address.country}}</p>
+  `,
 })
 
 // selector -> CSS selector that tells Angular to create and insert an instance of this component where it finds a <my-app> tag in parent HTML.
@@ -19,4 +23,25 @@ import { Component } from '@angular/core';
 // router-outle -> element indicates where the contents of each route component will be rendered.
 // [routerLink] -> applies the directive to the current element
 // Metadata -> Configuration lines inside the decorator are sometimes refered to metadata.
-export class AppComponent  { name = 'Angular'; }
+export class AppComponent  { 
+  name: string; 
+  email: string;
+  address: address;
+  showColors: boolean;
+
+  constructor(){
+    this.name = 'Juan'; 
+    this.email = 'juan@gmail.com';
+    this.address = {
+        street: 'San Miguel',
+        city: 'Alajuela',
+        country: 'Costa Rica'
+    }
+  }
+}
+
+type address = {
+  street: string;
+  city: string;
+  country: string;
+}

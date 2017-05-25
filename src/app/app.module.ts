@@ -13,11 +13,10 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent }  from './app.component';
-import { UserComponent }  from './components/user.component';
 
 @NgModule({
   imports:      [ BrowserModule ], // Loods required dependencies to launch our app in the browser.
-  declarations: [ AppComponent, UserComponent ], // List of all components within the module.
+  declarations: [ AppComponent ], // List of all components within the module.
   bootstrap:    [ AppComponent ] // Indicates our root component
 })
 // imports -> other modules whose exported classes are needed by component templates declared in this module.
@@ -30,4 +29,6 @@ import { UserComponent }  from './components/user.component';
 // Only the root module should set this bootstrap property.
 
 // Every decoration function decorates a class
-export class AppModule { }
+export class AppModule { 
+}
+
