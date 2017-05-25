@@ -13,6 +13,16 @@ import { Component } from '@angular/core';
     <h1>{{name}}</h1>
     <p>Email: {{email}}</p>
     <p>Address: {{address.street}} {{address.city}}, {{address.country}}</p>
+    <button (click)="toggleColorList()">{{showColors ? "Hide":"Show"}} Color User List</button>
+    <div *ngIf="showColors">
+    <h3>User Colors</h3>
+    <ul>
+        <li *ngFor="let color of colors; let i = index">
+          {{color}}
+        </li>
+        <br/>    
+    </ul>
+    </div>
   `,
 })
 
@@ -27,7 +37,9 @@ export class AppComponent  {
   name: string; 
   email: string;
   address: address;
+  colors: string[];
   showColors: boolean;
+
 
   constructor(){
     this.name = 'Juan'; 
@@ -37,6 +49,12 @@ export class AppComponent  {
         city: 'Alajuela',
         country: 'Costa Rica'
     }
+    this.colors = ['red', 'black', 'blue'];
+    this.showColors = false;
+  }
+
+  toggleColorList() {
+    this.showColors = !this.showColors;
   }
 }
 
